@@ -1,7 +1,138 @@
-body {
-    background-color: #ededed;
+/* FONTS */
+@font-face {
+  font-family: "Rijsoverheid";
+  src:
+    url(/assets/fonts/rijksoverheidsansheading-bold.ttf) format("ttf"),
+    url(/assets/fonts/rijksoverheidsanstext-regular.ttf) format("ttf"),
+    url(/assets/fonts/rijksoverheidserif-italic.ttf) format("ttf"),
+    url(/assets/fonts/rijksoverheidserif-regular.ttf) format("ttf");
 }
 
+
+/* RESETTING */
+*,
+*::after,
+*::before {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+summary {
+    cursor: pointer;
+}
+
+/* CUSTOM PROPERTIES */
+:root {
+    /* colors */
+    --white: white;
+    --black: black;
+
+    /* styleguide */
+    --logo-blue: #154273;
+    --red: #d52b1e;
+    --orange: #e17000;
+    --dark-yellow: #ffb612;
+    --dark-green: #275937;
+    --green: #39870c;
+    --dark-blue: #01689b;
+    --blue: #007bc7;
+    --light-blue: #8fcae7;
+    --grijs1: #f3f3f3;
+    --gray-2: #e6e6e6;
+    --gray-3: #cccccc;
+    --gray-4: #b4b4b4;
+    --gray-5: #999999;
+    --gray-6: #696969;
+    --gray-7: #535353;
+}
+
+/* NO JS BACK-UP */
+.no-js form {
+    background-color: var(--red);
+}
+
+/* BODY */
+body {
+    background-color: var(--gray-2);
+}
+
+/* NAVIGATION */
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav img {
+    display: block;
+    width: 10em;
+    padding-right: calc(50vw - 5em);
+    padding-left: calc(50vw - 5em);
+    padding-bottom: 1em;
+    background-color: white;
+}
+
+/* FORM */
+form {
+    margin: 1em;
+    border: none;
+}
+:user-valid {
+    border-color: green;
+}
+
+:user-invalid {
+    border-color: red;
+}
+
+/* FIELDSET */
 fieldset {
     background-color: white;
+    border: none;
+}
+
+legend {
+    background-color: #154273
+;
+    color: var(--white);
+    padding: 0.25em;
+    margin-left: .5em;
+}
+
+/* LABEL */
+label {
+    display: block;
+    max-width: max-content;
+    margin: 0.5em 1em;
+    padding: 0.25em 0.5em;
+
+    border: solid #374693;
+}
+
+/* CONDITIONAL */
+.hidden {
+    display: none;
+}
+
+label:has(#partner-yes:checked) ~ .hidden {
+    display: block;
+}
+
+/* label:has(#partner-no:checked) ~ .hidden {
+    display: block;
+} */
+
+label:has(#vastgelegde-partner-yes:checked) ~ .hidden-yes {
+    display: block;
+}
+
+label:has(#vastgelegde-partner-no:checked) ~ .hidden {
+    display: block;
+}
+
+label:has(.yes2:checked) ~ .hidden {
+    display: block;
 }
