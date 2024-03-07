@@ -17,8 +17,13 @@
         <nav>
             <img src="assets/images/belastingdienst-logo.png" alt="">
             <ul>
-                <li></li>
-                <li></li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
             </ul>
         </nav>
     </header>
@@ -29,29 +34,30 @@
                 <legend>1a</legend>
                 <h2>Gegevens van de overledene</h2>
                 <!-- 1st section -->
-                <section>
-                    <label for="voorletters">Voorletter(s)
-                        <input type="text" id="voorletters" />
-                    </label>
-                    <label for="tussenvoegsel">Tussenvoegsel(s)
-                        <input type="text" id="tussenvoegsel" />
-                    </label>
-                    <label for="achternaam">Achternaam
-                        <input type="text" id="achternaam" />
-                    </label>
-                    <label for="bsn">Burgerservicenummer(BSN) overledene
-                        <input type="text" id="bsn" />
-                    </label>
-                    <label for="overlijdensdatum">Overlijdensdatum
-                        <input type="date" id="overlijdensdatum" />
-                    </label>
-                </section>
+                <label for="voorletters">Voorletter(s)
+                    <input type="text" id="voorletters" pattern="[A-Z]+" required />
+                    <span data-error>Gebruik alleen de eerste letters van je naam in hoofdletters</span>
+                </label>
+                <label for="tussenvoegsel">Tussenvoegsel(s)
+                    <input type="text" id="tussenvoegsel" pattern="[a-zA-Z]+" />
+                </label>
+                <label for="achternaam">Achternaam
+                    <input type="text" id="achternaam" pattern="[a-zA-Z]+" required />
+                </label>
+                <label for="bsn">Burgerservicenummer(BSN)
+                    <input type="text" id="bsn" pattern="[1-9]{9}" maxlength="9" required />
+                </label>
+                <label for="overlijdensdatum">Overlijdensdatum
+                    <input type="date" id="overlijdensdatum" required />
+                </label>
+
+                <input type="submit" value="Next">
             </fieldset>
 
             <fieldset>
                 <legend>1b</legend>
                 <!-- 2nd section -->
-                <section>
+                <fieldset>
                     <p>Was de overledene getrouwd of had de overledene een geregistreerd partner op het moment van
                         overlijden?</p>
 
@@ -65,7 +71,7 @@
                     </label>
 
                     <!-- 2nd yes -->
-                    <section class="partner-yes hidden">
+                    <fieldset class="partner-yes hidden">
                         <p>Hadden de overledene en diens echtgenoot of
                             geregistreerd partner huwelijkse of partner schaps-
                             voorwaarden laten vastleggen in een notariële akte?</p>
@@ -82,15 +88,15 @@
                         </label>
 
                         <!-- yes -->
-                        <section class="vastgelegde-partner-yes hidden-yes">
+                        <fieldset class="vastgelegde-partner-yes hidden-yes">
                             <label>
                                 <input type="file" accept=".pdf" class="vastgelegde-partner-yes"
                                     name="diens-partner-file" value="yes">
                             </label>
-                        </section>
+                        </fieldset>
 
                         <!-- no -->
-                        <section class="vastgelegde-partner-no hidden">
+                        <fieldset class="vastgelegde-partner-no hidden">
                             <p>Hadden de overledene en diens partner een finaal
                                 verrekenbeding?</p>
 
@@ -102,8 +108,8 @@
                                 <input type="radio" class="no3" name="diens-partner" value="no">
                                 No
                             </label>
-                        </section>
-                    </section>
+                        </fieldset>
+                    </fieldset>
 
                     <!-- 2nd no -->
                     <!-- <section class="partner-no hidden"> -->
@@ -132,38 +138,8 @@
                     <!-- </label> -->
                     <!-- </section> -->
                     <!-- </section> -->
-                </section>
-
-
-
-
+                </fieldset>
             </fieldset>
-
-            <!-- <fieldset> -->
-            <!-- <legend>Gegevens</legend> -->
-            <!-- <label for="">Burgerservicenummer/RSIN gemachtigde -->
-            <!-- <input type="text" /> -->
-            <!-- </label> -->
-            <!-- <label for="">Beconnummer adviseur -->
-            <!-- <input type="text"> -->
-            <!-- </label> -->
-            <!-- <label for="">Protocolnummer notaris -->
-            <!-- <input type="text"> -->
-            <!-- </label> -->
-
-            <!-- </fieldset> -->
-
-            <!-- <fieldset>
-                <legend>Gegevens</legend>
-                <label for="">Achternaam</label>
-                <input type="text" />
-            </fieldset> -->
-
-            <!-- <fieldset>
-                <legend>Gegevens</legend>
-                <label for="bsn">BSN Nummer</label>
-                <input type="text" id="bsn" name="bsn" pattern="[0-9]{9}" maxlength="9" required />
-            </fieldset> -->
 
 </body>
 

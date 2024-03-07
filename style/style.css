@@ -1,19 +1,30 @@
 /* FONTS */
 @font-face {
-  font-family: "Rijsoverheid";
-  src:
-    url(/assets/fonts/rijksoverheidsansheading-bold.ttf) format("ttf"),
-    url(/assets/fonts/rijksoverheidsanstext-regular.ttf) format("ttf"),
-    url(/assets/fonts/rijksoverheidserif-italic.ttf) format("ttf"),
-    url(/assets/fonts/rijksoverheidserif-regular.ttf) format("ttf");
+    font-family: "Rijksoverheid";
+    src: url("/assets/fonts/rijksoverheidserif-regular.ttf");
 }
 
+@font-face {
+    font-family: "Rijksoverheid-text-regular";
+    src: url("/assets/fonts/rijksoverheidsanstext-regular.ttf");
+}
+
+@font-face {
+    font-family: "Rijksoverheid-bold";
+    src: url("/assets/fonts/rijksoverheidsansheading-bold.ttf");
+}
+
+@font-face {
+    font-family: "Rijksoverheid-italic";
+    src: url("/assets/fonts/rijksoverheidserif-italic.ttf");
+}
 
 /* RESETTING */
 *,
 *::after,
 *::before {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    font-family: "Rijksoverheid";
     margin: 0;
     padding: 0;
 }
@@ -46,6 +57,15 @@ summary {
     --gray-5: #999999;
     --gray-6: #696969;
     --gray-7: #535353;
+
+    /* validation */
+    --validate-green: #39870c1e;
+    --validate-red: #ff00001f;
+
+    /* shadow */
+    --gray-shadow1: #0000001a;
+    --gray-shadow2: #00000033;
+
 }
 
 /* NO JS BACK-UP */
@@ -72,47 +92,171 @@ nav img {
     padding-right: calc(50vw - 5em);
     padding-left: calc(50vw - 5em);
     padding-bottom: 1em;
-    background-color: white;
+    background-color: var(--white);
 }
 
+/*  PROGRESS BAR */
+ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+li {
+    display: flex;
+    list-style: none;
+    border-radius: 10em;
+    margin: 1em 0.5em;
+    padding: 0.5em;
+    width: 1em;
+    height: 1em;
+    background-color: var(--gray-4);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MAIN */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.5em;
+}
 /* FORM */
 form {
-    margin: 1em;
     border: none;
 }
-:user-valid {
-    border-color: green;
+
+input:user-valid {
+    border-color: var(--green);
+    background-color: var(--validate-green);
 }
 
-:user-invalid {
-    border-color: red;
+input:user-invalid {
+    border-color: var(--red);
+    background-color: var(--validate-red);
 }
 
 /* FIELDSET */
 fieldset {
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: var(--white);
+
+    padding: 1em;
+    /* margin: 1em 0; */
+
     border: none;
 }
 
 legend {
-    background-color: #154273
-;
+    background-color: var(--dark-blue);
     color: var(--white);
-    padding: 0.25em;
-    margin-left: .5em;
+    padding: 0.25em 0.5em;
+    margin-left: 0.5em;
 }
 
 /* LABEL */
 label {
     display: block;
     max-width: max-content;
-    margin: 0.5em 1em;
-    padding: 0.25em 0.5em;
+    /* margin: 0.5em 1em; */
+    /* padding: 0.5em 0em; */
 
-    border: solid #374693;
+    border: none;
 }
 
-/* CONDITIONAL */
+/* INPUT */
+input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 20em;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    border-radius: 0;
+
+    border: solid 0.125em var(--gray-7);
+}
+
+/* if input has a required atribute, then add "*" */
+label:has(input[required]) {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+}
+
+label:has(input[required])::before {
+    content: "*";
+    margin-left: 2px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+label:has(input[required]) input {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+label:has(input[required]) span {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+/* input type="date" */
+input[type="date"] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* input type="submit" */
+input[type="submit"] {
+    justify-self: flex-end;
+    align-self: flex-end;
+    font-family: "Rijksoverheid";
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--blue);
+    border: none;
+    padding: 1.25em 1em;
+    box-shadow: inset 0 -3px 0 var(--gray-shadow1);
+
+    width: 10em;
+}
+
+input[type="submit"]:hover {
+    box-shadow: inset 0 -60px 0 var(--gray-shadow2);
+    overflow: hidden;
+    transition: box-shadow 0.4s;
+}
+
+
+
+/* CONDITIONS */
+
+label span {
+    display: none;
+}
+
+input:user-invalid + span[data-error] {
+    color: red;
+    font-size: 0.9rem;
+    display: block;
+
+    animation: smooth 0.5s;
+}
+
+input:user-invalid {
+    border: solid red 1px;
+}
 .hidden {
     display: none;
 }
@@ -135,4 +279,17 @@ label:has(#vastgelegde-partner-no:checked) ~ .hidden {
 
 label:has(.yes2:checked) ~ .hidden {
     display: block;
+}
+
+/* AANIMATIONS */
+
+@keyframes smooth {
+    from {
+        opacity: 0;
+        color: var(--gray-6);
+    }
+    to {
+        opacity: 100%;
+        color: var(--red);
+    }
 }
