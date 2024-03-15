@@ -17,130 +17,281 @@
         <nav>
             <img src="assets/images/belastingdienst-logo.png" alt="">
             <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
+                <li><a href="#nul">0</a></li>
+                <li><a href="#een">1</a></li>
+                <li><a href="#twee">2</a></li>
+                <li><a href="#drie">3</a></li>
+                <li><a href="#vier">4</a></li>
+                <li><a href="#vijf">5</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h1>Erfbelasting formulier</h1>
         <form action="#">
-            <fieldset>
-                <legend>1a</legend>
-                <h2>Gegevens van de overledene</h2>
-                <!-- 1st section -->
-                <label for="voorletters">Voorletter(s)
-                    <input type="text" id="voorletters" pattern="[A-Z]+" required />
-                    <span data-error>Gebruik alleen de eerste letters van je naam in hoofdletters</span>
-                </label>
-                <label for="tussenvoegsel">Tussenvoegsel(s)
-                    <input type="text" id="tussenvoegsel" pattern="[a-zA-Z]+" />
-                </label>
-                <label for="achternaam">Achternaam
-                    <input type="text" id="achternaam" pattern="[a-zA-Z]+" required />
-                </label>
-                <label for="bsn">Burgerservicenummer(BSN)
-                    <input type="text" id="bsn" pattern="[1-9]{9}" maxlength="9" required />
-                </label>
-                <label for="overlijdensdatum">Overlijdensdatum
-                    <input type="date" id="overlijdensdatum" required />
-                </label>
+            <fieldset id="nul">
+                <legend>Aanvraag Erfbelasting Formulier</legend>
 
-                <input type="submit" value="Next">
             </fieldset>
+            <fieldset id="een">
+                <legend>Gegevens van de overledene</legend>
 
-            <fieldset>
-                <legend>1b</legend>
-                <!-- 2nd section -->
                 <fieldset>
-                    <p>Was de overledene getrouwd of had de overledene een geregistreerd partner op het moment van
-                        overlijden?</p>
+                    <legend>1a</legend>
+                    <!-- 1st section -->
 
-                    <label for="partner-yes">
-                        <input type="radio" id="partner-yes" class="partner" name="partner" value="yes">
-                        Yes
-                    </label>
-                    <label for="partner-no">
-                        <input type="radio" id="partner-no" class="partner" name="partner" value="no">
-                        No
-                    </label>
-
-                    <!-- 2nd yes -->
-                    <fieldset class="partner-yes hidden">
-                        <p>Hadden de overledene en diens echtgenoot of
-                            geregistreerd partner huwelijkse of partner schaps-
-                            voorwaarden laten vastleggen in een notariële akte?</p>
-
-                        <label for="vastgelegde-partner-yes">
-                            <input type="radio" class="vastgelegde-partner" id="vastgelegde-partner-yes"
-                                name="vastgelegde-partner" value="yes">
-                            Yes
+                    <!-- met een "title" kun je error message van html veranderen -->
+                    <section>
+                        <label for="voorletters">Voorletter(s)
+                            <input type="text" class="uppercase" id="voorletters" pattern="[a-zA-Z]+" required />
+                            <span data-error>Vul de eerste letters van de naam van de overledene in hoofdletters
+                                in</span>
                         </label>
-                        <label for="vastgelegde-partner-no">
-                            <input type="radio" class="vastgelegde-partner" id="vastgelegde-partner-no"
-                                name="vastgelegde-partner" value="no">
-                            No
+                    </section>
+                    <section>
+                        <label for="tussenvoegsel">Tussenvoegsel(s)
+                            <input type="text" class="lowercase" id="tussenvoegsel" pattern="[a-zA-Z]+" />
                         </label>
+                    </section>
+                    <section>
+                        <label for="achternaam">Achternaam
+                            <input type="text" class="capitalize" id="achternaam" pattern="[a-zA-Z]+" required />
+                            <span data-error>Vul hier de achternaam van de overledene in</span>
+                        </label>
+                    </section>
+                    <section>
+                        <label for="bsn">Burgerservicenummer(BSN)
+                            <input type="text" id="bsn" pattern="[1-9]{8,9}" maxlength="9" required />
+                            <span data-error>Vul hier de BSN-nummer van de overledene in</span>
+                        </label>
+                    </section>
+                    <section>
+                        <label for="overlijdensdatum">Overlijdensdatum
+                            <input type="date" id="overlijdensdatum" value="2023-06-01" required />
+                            <span data-error>Vul hier een geldige datum in</span>
 
-                        <!-- yes -->
-                        <fieldset class="vastgelegde-partner-yes hidden-yes">
-                            <label>
-                                <input type="file" accept=".pdf" class="vastgelegde-partner-yes"
-                                    name="diens-partner-file" value="yes">
-                            </label>
-                        </fieldset>
+                        </label>
+                    </section>
 
-                        <!-- no -->
-                        <fieldset class="vastgelegde-partner-no hidden">
-                            <p>Hadden de overledene en diens partner een finaal
-                                verrekenbeding?</p>
-
-                            <label>
-                                <input type="radio" class="yes3" name="diens-partner" value="yes">
-                                Yes
-                            </label>
-                            <label>
-                                <input type="radio" class="no3" name="diens-partner" value="no">
-                                No
-                            </label>
-                        </fieldset>
-                    </fieldset>
-
-                    <!-- 2nd no -->
-                    <!-- <section class="partner-no hidden"> -->
-                    <!-- <p>Had de overledene kinderen?</p> -->
-
-                    <!-- <label> -->
-                    <!-- <input type="radio" class="yes4" id="yes3" name="kinderen" value="yes"> -->
-                    <!-- Yes -->
-                    <!-- </label> -->
-                    <!-- <label> -->
-                    <!-- <input type="radio" class="no4" id="no3" name="kinderen" value="no"> -->
-                    <!-- No -->
-                    <!-- </label> -->
-
-                    <!-- no -->
-                    <!-- <section class="hidden"> -->
-                    <!-- <p></p> -->
-
-                    <!-- <label> -->
-                    <!-- <input type="radio" class="yes5" name="diens-partner" value="yes"> -->
-                    <!-- Yes -->
-                    <!-- </label> -->
-                    <!-- <label> -->
-                    <!-- <input type="radio" class="no5" name="diens-partner" value="no"> -->
-                    <!-- No -->
-                    <!-- </label> -->
-                    <!-- </section> -->
-                    <!-- </section> -->
                 </fieldset>
+
+                <fieldset>
+                    <legend>1b</legend>
+                    <!-- 2nd section -->
+                    <section class="yes-no">
+                        <p>Was de overledene getrouwd of had de overledene een geregistreerd partner op het moment van
+                            overlijden?</p>
+
+                        <label>
+                            Yes
+                            <input type="radio" class="condition" name="partner" value="yes" required>
+
+                        </label>
+                        <label>
+                            No
+                            <input type="radio" name="partner" value="no">
+                        </label>
+                        <span data-error>Vul de eerste letters van de naam van de overledene in hoofdletters in</span>
+
+
+
+                        <!-- 2nd yes -->
+                        <section class="yes-no hidden">
+                            <p>Hadden de overledene en diens echtgenoot of
+                                geregistreerd partner huwelijkse of partner schaps-
+                                voorwaarden laten vastleggen in een notariële akte?</p>
+
+                            <label>
+                                Yes
+                                <input type="radio" class="condition" name="vastgelegde-partner" value="yes" required>
+
+                            </label>
+                            <label>
+                                No
+                                <input type="radio" name="vastgelegde-partner" value="no">
+
+                            </label>
+
+                            <!-- yes -->
+                            <section class="hidden">
+                                <label>
+                                    <input type="file" accept=".pdf" name="diens-partner-file" value="yes" required>
+                                </label>
+                            </section>
+
+
+                            <!-- no -->
+                            <section class="yes-no">
+                                <p>Hadden de overledene en diens partner een finaal
+                                    verrekenbeding?</p>
+
+                                <label>Yes
+                                    <input type="radio" name="diens-partner" value="yes" required>
+
+                                </label>
+                                <label>
+                                    No
+                                    <input type="radio" name="diens-partner" value="no">
+
+                                </label>
+
+                            </section>
+
+                            <section>
+                                <p>Hadden de overledene en diens partner een finaal
+                                    verrekenbeding?</p>
+
+                                <label>
+                                    <input type="date" value="2023-06-01">
+                                </label>
+                            </section>
+                        </section>
+
+                    </section>
+                </fieldset>
+
+                <fieldset>
+                    <legend>1c</legend>
+                    <section class="yes-no">
+                        <p>Had de overledene kinderen?</p>
+
+                        <label>
+                            Yes
+                            <input type="radio" class="condition" name="kinderen" value="yes" required>
+                        </label>
+                        <label>
+                            No
+                            <input type="radio" name="kinderen" value="no">
+                        </label>
+
+                        <section class="yes-no hidden">
+                            <p>Is 1 van deze kinderen eerder overleden dan de
+                                overledene voor wie u nu aangifte doet?</p>
+
+                            <label>
+                                Yes
+                                <input type="radio" class="condition" name="kinderen-aangifte" value="yes" required>
+                            </label>
+                            <label>
+                                No
+                                <input type="radio" name="kinderen-aangifte" value="no">
+                            </label>
+
+                            <section class="yes-no hidden">
+                                <p>Had dit overleden kind zelf kinderen?</p>
+
+                                <label>
+                                    Yes
+                                    <input type="radio" name="zelf-kinderen" value="yes" required>
+                                </label>
+                                <label>
+                                    No
+                                    <input type="radio" name="zelf-kinderen" value="no">
+                                </label>
+                            </section>
+                        </section>
+
+                    </section>
+                </fieldset>
+
+                <fieldset>
+                    <legend>1d</legend>
+                    <section class="yes-no">
+                        <p>Had de overledene een testament?</p>
+
+                        <label>
+                            Yes
+                            <input type="radio" name="testament" value="yes" required>
+                        </label>
+                        <label>
+                            No
+                            <input type="radio" name="testament" value="no">
+                        </label>
+                    </section>
+
+                    <section>
+                        <label>
+                            Protocolnummer notaris
+                            <input type="text" id="bsn" pattern="[1-9]{6}" maxlength="6" required />
+                        </label>
+                    </section>
+
+                    <section>
+                        <label for="voorletters">Voorletter(s)
+                            <input type="text" id="voorletters" pattern="[A-Z]+" required />
+                            <span data-error>Gebruik alleen de eerste letters van je naam in hoofdletters</span>
+                        </label>
+                    </section>
+                    <section>
+                        <label for="tussenvoegsel">Tussenvoegsel(s)
+                            <input type="text" id="tussenvoegsel" pattern="[a-zA-Z]+" />
+                        </label>
+                    </section>
+                    <section>
+                        <label for="achternaam">Achternaam
+                            <input type="text" id="achternaam" pattern="[a-zA-Z]+" required />
+                        </label>
+                    </section>
+                    <section>
+                        <label for="achternaam">Vestigingsplaats
+                            <input type="text" id="achternaam" pattern="[a-zA-Z]+" required />
+                        </label>
+                    </section>
+                    <section>
+                        <label for="achternaam">Datum van het testament of
+                            van de laatste wijziging
+                            <input type="date" value="2023-06-01">
+                        </label>
+                    </section>
+
+                </fieldset>
+                <input type="submit" value="Next">
+
             </fieldset>
 
+            <section id="twee">
+                <fieldset>
+                    <legend>Gegevens gemachtigde</legend>
+                    <fieldset>
+                        <legend>2a</legend>
+
+                        <section>
+                            <label class="hidden">
+                                Burgerservicenummer/RSIN gemachtigde
+                                <input type="radio" class="condition" name="gemachtichte" value="bsn" required>
+                            </label>
+                            <section class="hidden">
+                                <label>
+                                    <input type="text" pattern="[1-9]{8,9}" maxlength="9" required />
+                                </label>
+                            </section>
+                        </section>
+                        <section>
+                            <label>
+                                Beconnummer adviseur
+                                <input type="radio" class="condition" name="gemachtichte" value="becon">
+                            </label>
+                            <section class="hidden">
+                                <label>
+                                    <input type="text" pattern="[0-9]{6}" maxlength="6" required />
+                                </label>
+                            </section>
+                        </section>
+                        <section>
+                            <label>
+                                Protocolnummer notaris
+                                <input type="radio" class="condition" name="gemachtichte" value="notaris">
+                            </label>
+                            <section class="hidden">
+                                <label>
+                                    <input type="text" pattern="[0-9]{6}" maxlength="6" required />
+                                </label>
+                            </section>
+                        </section>
+            </section>
+            </fieldset>
+
+            </fieldset>
+            </section>
 </body>
 
 <script src="script/script.js"></script>
