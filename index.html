@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="nl" class="no-js">
+<html lang="nl" class="nee-js">
 
 <script>
-    document.documentElement.classList.remove('no-js')
+    document.documentElement.classList.remove('nee-js')
 </script>
 
 <head>
@@ -17,32 +17,50 @@
         <nav>
             <img src="assets/images/belastingdienst-logo.png" alt="">
             <ul>
-                <li><a href="#nul">0</a></li>
+                <li><a href="/">0</a></li>
                 <li><a href="#een">1</a></li>
                 <li><a href="#twee">2</a></li>
                 <li><a href="#drie">3</a></li>
                 <li><a href="#vier">4</a></li>
-                <li><a href="#vijf">5</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <form action="#">
-            <fieldset id="nul">
-                <legend>Aanvraag Erfbelasting Formulier</legend>
+        <section id="nul">
+            <h1>Aanvraag Erfbelasting Formulier</h1>
+            <h2>Introductie</h2>
+            <p>Met dit formulier doet u aangifte erfbelasting.
 
-            </fieldset>
+                Als iemand overlijdt, gaat zijn erfenis naar de erfgenamen. Zij krijgen dan te maken met erfbelasting.
+                Een erfenis
+                bestaat uit alle bezittingen én schulden die een overledene achterlaat. Bijvoorbeeld een geldbedrag of
+                een kostbaar
+                voorwerp.
+            </p>
+
+            <h2>Hulp needig?</h2>
+            <!-- Klik op het vraagteken voor een korte toelichting bij de vraag. -->
+            <ul>
+                <li>Op belastingdienst.nl/erfbelasting voor meer informatie over erfbelasting.</li>
+                <li>Of bel met de BelastingTelefoon voor nabestaanden: 0800 - 235 83 54.</li>
+                <li>Houd uw eigen burgerservicenummer én het bsn van de overledene bij de hand.</li>
+            </ul>
+            <a href="#een">Ga naar Erfbelasting Formulier</a>
+        </section>
+
+
+        <form action="" method="post">
             <fieldset id="een">
                 <legend>Gegevens van de overledene</legend>
 
-                <fieldset>
+                <fieldset id="field-1">
                     <legend>1a</legend>
                     <!-- 1st section -->
 
                     <!-- met een "title" kun je error message van html veranderen -->
                     <section>
                         <label for="voorletters">Voorletter(s)
-                            <input type="text" class="uppercase" id="voorletters" pattern="[a-zA-Z]+" required />
+                            <input type="text" id="voorletters" pattern="[A-Z]+" required />
                             <span data-error>Vul de eerste letters van de naam van de overledene in hoofdletters
                                 in</span>
                         </label>
@@ -66,71 +84,81 @@
                     </section>
                     <section>
                         <label for="overlijdensdatum">Overlijdensdatum
-                            <input type="date" id="overlijdensdatum" value="2023-06-01" required />
-                            <span data-error>Vul hier een geldige datum in</span>
+                            <input type="date" id="overlijdensdatum" max="2024-12-31" min="2022-01-01"
+                                value="2023-06-01" required />
+                            <span data-error>Vul hier een geldige datum in (niet eerder dan 01.01.2022)</span>
 
                         </label>
                     </section>
 
                 </fieldset>
 
-                <fieldset>
+                <fieldset id="field-2">
                     <legend>1b</legend>
                     <!-- 2nd section -->
-                    <section class="yes-no">
+                    <section class="ja-nee">
                         <p>Was de overledene getrouwd of had de overledene een geregistreerd partner op het moment van
                             overlijden?</p>
 
                         <label>
-                            Yes
-                            <input type="radio" class="condition" name="partner" value="yes" required>
 
+                            <input type="radio" class="condition" name="partner" value="ja" required>
+                            ja
                         </label>
                         <label>
-                            No
-                            <input type="radio" name="partner" value="no">
+
+                            <input type="radio" name="partner" value="nee">
+                            nee
+                            <span data-error>Kies een van de opties</span>
                         </label>
-                        <span data-error>Vul de eerste letters van de naam van de overledene in hoofdletters in</span>
 
 
 
-                        <!-- 2nd yes -->
-                        <section class="yes-no hidden">
-                            <p>Hadden de overledene en diens echtgenoot of
+
+                        <!-- 2nd ja -->
+                        <section class="ja-nee hideable">
+                            <p>Hadden de overledene en diens echtgeneeot of
                                 geregistreerd partner huwelijkse of partner schaps-
                                 voorwaarden laten vastleggen in een notariële akte?</p>
 
                             <label>
-                                Yes
-                                <input type="radio" class="condition" name="vastgelegde-partner" value="yes" required>
 
+                                <input type="radio" class="condition" name="vastgelegde-partner" value="ja" required>
+                                Ja
                             </label>
                             <label>
-                                No
-                                <input type="radio" name="vastgelegde-partner" value="no">
+
+                                <input type="radio" name="vastgelegde-partner" value="nee">
+                                Nee
+                                <span data-error>Kies een van de opties</span>
 
                             </label>
 
-                            <!-- yes -->
-                            <section class="hidden">
+                            <!-- ja -->
+                            <section class="hideable">
                                 <label>
-                                    <input type="file" accept=".pdf" name="diens-partner-file" value="yes" required>
+                                    <input type="file" accept=".pdf" name="diens-partner-file" required>
+                                    <span data-error>Voeg een .pdf file toe</span>
+
                                 </label>
                             </section>
 
 
-                            <!-- no -->
-                            <section class="yes-no">
+                            <!-- nee -->
+                            <section class="ja-nee">
                                 <p>Hadden de overledene en diens partner een finaal
                                     verrekenbeding?</p>
 
-                                <label>Yes
-                                    <input type="radio" name="diens-partner" value="yes" required>
+                                <label>
+                                    <input type="radio" name="diens-partner" value="ja" required>
+                                    Ja
 
                                 </label>
                                 <label>
-                                    No
-                                    <input type="radio" name="diens-partner" value="no">
+
+                                    <input type="radio" name="diens-partner" value="nee">
+                                    Nee
+                                    <span data-error>Kies een van de opties</span>
 
                                 </label>
 
@@ -141,7 +169,10 @@
                                     verrekenbeding?</p>
 
                                 <label>
-                                    <input type="date" value="2023-06-01">
+                                    <input type="date" id="overledene-date" max="2024-12-31" min="2000-01-01"
+                                        value="2023-06-01">
+                                    <span data-error>Kies een date (niet eerder dan 01.01.2000)</span>
+
                                 </label>
                             </section>
                         </section>
@@ -151,41 +182,49 @@
 
                 <fieldset>
                     <legend>1c</legend>
-                    <section class="yes-no">
+                    <section class="ja-nee">
                         <p>Had de overledene kinderen?</p>
 
                         <label>
-                            Yes
-                            <input type="radio" class="condition" name="kinderen" value="yes" required>
+
+                            <input type="radio" class="condition" name="kinderen" value="ja" required>
+                            Ja
                         </label>
                         <label>
-                            No
-                            <input type="radio" name="kinderen" value="no">
+
+                            <input type="radio" name="kinderen" value="nee">
+                            Nee
+                            <span data-error>Kies een van de opties</span>
                         </label>
 
-                        <section class="yes-no hidden">
+                        <section class="ja-nee hideable">
                             <p>Is 1 van deze kinderen eerder overleden dan de
                                 overledene voor wie u nu aangifte doet?</p>
 
                             <label>
-                                Yes
-                                <input type="radio" class="condition" name="kinderen-aangifte" value="yes" required>
+                                <input type="radio" class="condition" name="kinderen-aangifte" value="ja" required>
+                                Ja
                             </label>
                             <label>
-                                No
-                                <input type="radio" name="kinderen-aangifte" value="no">
+
+                                <input type="radio" name="kinderen-aangifte" value="nee">
+                                Nee
+                                <span data-error>Kies een van de opties</span>
                             </label>
 
-                            <section class="yes-no hidden">
+                            <section class="ja-nee hideable">
                                 <p>Had dit overleden kind zelf kinderen?</p>
 
                                 <label>
-                                    Yes
-                                    <input type="radio" name="zelf-kinderen" value="yes" required>
+
+                                    <input type="radio" name="zelf-kinderen" value="ja" required>
+                                    Ja
                                 </label>
                                 <label>
-                                    No
-                                    <input type="radio" name="zelf-kinderen" value="no">
+
+                                    <input type="radio" name="zelf-kinderen" value="nee">
+                                    Nee
+                                    <span data-error>Kies een van de opties</span>
                                 </label>
                             </section>
                         </section>
@@ -195,103 +234,359 @@
 
                 <fieldset>
                     <legend>1d</legend>
-                    <section class="yes-no">
+                    <section class="ja-nee">
                         <p>Had de overledene een testament?</p>
 
                         <label>
-                            Yes
-                            <input type="radio" name="testament" value="yes" required>
+
+                            <input type="radio" name="testament" value="ja" required>
+                            Ja
+
                         </label>
                         <label>
-                            No
-                            <input type="radio" name="testament" value="no">
+
+                            <input type="radio" name="testament" value="nee">
+                            Nee
+                            <span data-error>Kies een van de opties</span>
                         </label>
                     </section>
 
                     <section>
                         <label>
                             Protocolnummer notaris
-                            <input type="text" id="bsn" pattern="[1-9]{6}" maxlength="6" required />
+                            <input type="text" id="protocolnummerNotaris" pattern="[1-9]{6}" maxlength="6" required />
+                            <span data-error>Vul hier de Protocolnummer notaris in</span>
                         </label>
                     </section>
 
                     <section>
-                        <label for="voorletters">Voorletter(s)
-                            <input type="text" id="voorletters" pattern="[A-Z]+" required />
-                            <span data-error>Gebruik alleen de eerste letters van je naam in hoofdletters</span>
+                        <label for="voorletters1d">Voorletter(s)
+                            <input type="text" id="voorletters1d" pattern="[A-Z]+" required />
+                            <span data-error>Gebruik alleen de eerste letters van de naam in hoofdletters</span>
                         </label>
                     </section>
                     <section>
-                        <label for="tussenvoegsel">Tussenvoegsel(s)
-                            <input type="text" id="tussenvoegsel" pattern="[a-zA-Z]+" />
+                        <label for="tussenvoegsel1d">Tussenvoegsel(s)
+                            <input type="text" id="tussenvoegsel1d" pattern="[a-zA-Z]+" />
                         </label>
                     </section>
                     <section>
-                        <label for="achternaam">Achternaam
-                            <input type="text" id="achternaam" pattern="[a-zA-Z]+" required />
+                        <label for="achternaam1d">Achternaam
+                            <input type="text" id="achternaam1d" pattern="[a-zA-Z]+" required />
+                            <span data-error>Vul hier de achternaam in</span>
+
                         </label>
                     </section>
                     <section>
-                        <label for="achternaam">Vestigingsplaats
-                            <input type="text" id="achternaam" pattern="[a-zA-Z]+" required />
+                        <label for="achternaam1d">Vestigingsplaats
+                            <input type="text" id="achternaam1d" pattern="[a-zA-Z]+" required />
+                            <span data-error>Vul hier de vestigingsplaats in</span>
+
                         </label>
                     </section>
                     <section>
-                        <label for="achternaam">Datum van het testament of
-                            van de laatste wijziging
-                            <input type="date" value="2023-06-01">
+                        <label for="date1d">Datum van het testament of van de laatste wijziging
+                            <input type="date" id="date1d" max="2024-12-31" min="2000-01-01" value="2023-06-01">
+                            <span data-error>Vul hier de datum niet eerder dan 01.01.2000</span>
                         </label>
                     </section>
 
                 </fieldset>
-                <input type="submit" value="Next">
+                <div>
+                    <input type="submit" value="Controleer">
+                    <a href="#twee">Volgende</a>
+                </div>
+
 
             </fieldset>
 
-            <section id="twee">
+            <fieldset id="twee">
                 <fieldset>
                     <legend>Gegevens gemachtigde</legend>
                     <fieldset>
                         <legend>2a</legend>
 
-                        <section>
-                            <label class="hidden">
-                                Burgerservicenummer/RSIN gemachtigde
-                                <input type="radio" class="condition" name="gemachtichte" value="bsn" required>
-                            </label>
-                            <section class="hidden">
+                        <section class="radioStyling">
+                            <p>Vul 1 van de 3 in:</p>
+                            <section class="gemachtigdeGegevens">
+                                <label class="hideable">
+                                    Burgerservicenummer/RSIN gemachtigde
+                                    <input type="radio" id="bsn2a" class="condition" name="gemachtichte" value="bsn"
+                                        required>
+                                </label>
+                                <section class="hideable">
+                                    <label>
+                                        <input type="text" pattern="[1-9]{8,9}" maxlength="9" required />
+                                        <span data-error>Voer een geldige bsn in zoals 12345678 of 123456789</span>
+                                    </label>
+                                </section>
+                            </section>
+                            <section class="gemachtigdeGegevens">
                                 <label>
-                                    <input type="text" pattern="[1-9]{8,9}" maxlength="9" required />
+                                    Beconnummer adviseur
+                                    <input type="radio" class="condition" name="gemachtichte" value="becon">
+                                </label>
+                                <section class="hideable">
+                                    <label>
+                                        <input type="text" pattern="[0-9]{6}" maxlength="6" required />
+                                        <span data-error>Voer een geldige beconnummer in zoals 012345</span>
+                                    </label>
+                                </section>
+                            </section>
+                            <section class="gemachtigdeGegevens">
+                                <label>
+                                    Protocolnummer notaris
+                                    <input type="radio" class="condition" name="gemachtichte" value="notaris">
+                                </label>
+                                <section class="hideable">
+                                    <label>
+                                        <input type="text" pattern="[0-9]{6}" maxlength="6" required />
+                                        <span data-error>Voer een geldige protocolnummer notaris in zoals 012345</span>
+                                    </label>
+                                </section>
+                            </section>
+                        </section>
+                    </fieldset>
+                    <fieldset>
+                        <legend>2b</legend>
+
+                        <section>
+                            <label for="voorletters2b">Voorletter(s)
+                                <input type="text" class="uppercase" id="voorletters2b" pattern="[a-zA-Z]+" required />
+                                <span data-error>Vul de eerste letters van de naam in hoofdletters in</span>
+                            </label>
+                        </section>
+                        <section>
+                            <label for="tussenvoegsel2b">Tussenvoegsel(s)
+                                <input type="text" class="lowercase" id="tussenvoegsel2b" pattern="[a-zA-Z]+" />
+                            </label>
+                        </section>
+                        <section>
+                            <label for="achternaam2b">Achternaam
+                                <input type="text" class="capitalize" id="achternaam2b" pattern="[a-zA-Z]+" required />
+                                <span data-error>Vul hier de achternaam in</span>
+                            </label>
+                        </section>
+                        <section>
+                            <label for="instelling">Naam instelling (bijvoorbeeld een notariskantoor):
+                                <input type="text" id="instelling" name="instelling" pattern="[a-zA-Z\.]*" required />
+                                <span data-error>Voer de naam van de instelling in</span>
+                            </label>
+                        </section>
+                        <section>
+                            <label for="telefoon">Telefoonnummer
+                                <input type="tel" id="telefoonnummer" name="telefoonnummer" pattern="[0-9]{10}"
+                                    required>
+                                <span data-error>Voer een geldige telefoonnummer in (begin met 06)</span>
+
+                            </label>
+                            <section>
+                                <label for="email">E-mailadres
+                                    <input type="email" id="email" name="email" required />
+                                    <span>Email moet "@" en "." hebben</span>
                                 </label>
                             </section>
                         </section>
                         <section>
-                            <label>
-                                Beconnummer adviseur
-                                <input type="radio" class="condition" name="gemachtichte" value="becon">
-                            </label>
-                            <section class="hidden">
-                                <label>
-                                    <input type="text" pattern="[0-9]{6}" maxlength="6" required />
-                                </label>
+                            <section for="adres" class="adres">
+                                <p>Adres van de gemachtigde:</p>
+                                <section>
+                                    <label for="adres">
+                                        Nederland
+                                        <input type="radio" class="condition" name="adres" value="nederland" required>
+                                    </label>
+                                    <section class="hideable">
+                                        <section>
+                                            <section>
+                                                <section>
+                                                    <label for="straat">Straat
+                                                        <input type="text" name="straat" pattern="[A-Za-z\.]*"
+                                                            required />
+                                                        <span data-error>Voer alleen de straatnaam in</span>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label for="huisnummer">Huisnummer
+                                                        <input type="text" name="huisnummer" pattern="[0-9]*"
+                                                            required />
+                                                        <span data-error>Voer alleen het huisnummer in</span>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label for="toevoeging">Toevoeging
+                                                        <input type="text" name="toevoeging" pattern="[A-Za-z]*"
+                                                            required />
+                                                    </label>
+                                                </section>
+
+                                                <section>
+                                                    <label for="postcode">Postcode
+                                                        <input type="text" id="postcode" name="postcode"
+                                                            pattern="[0-9]{4}[A-Za-z]{2}" required />
+                                                        <span data-error>Voer een geldige postcode in zoals
+                                                            1234AB</span>
+                                                    </label>
+                                                </section>
+                                                <section>
+                                                    <label for="woonplaats">Woonplaats
+                                                        <input type="text" id="woonplaats" name="woonplaats"
+                                                            pattern="[a-zA-Z\.]*" required />
+                                                        <span data-error>Voer de woonplaats van de gemachtigde in
+                                                        </span>
+                                                    </label>
+                                                </section>
+                                            </section>
+                                        </section>
+                                    </section>
+                                    <section>
+                                        <label for="adres">
+                                            Buitenland
+                                            <input type="radio" class="condition" name="adres" value="buitenland">
+                                        </label>
+                                        <section class="hideable">
+                                            <section>
+                                                <label for="straat">Straat
+                                                    <input type="text" name="straat" pattern="[A-Za-z\.]*" required />
+                                                    <span data-error>Voer alleen de straatnaam in</span>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="huisnummer">Huisnummer
+                                                    <input type="text" name="huisnummer" pattern="[0-9]*" required />
+                                                    <span data-error>Voer alleen het huisnummer in</span>
+                                                </label>
+                                            </section>
+
+
+                                            <section>
+                                                <label for="postcode">Postcode
+                                                    <input type="text" id="postcode" name="postcode"
+                                                        pattern="[0-9]{4}[A-Za-z]{2}" required />
+                                                    <span data-error>Voer een geldige postcode in zoals 1234AB</span>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="woonplaats">Plaats
+                                                    <input type="text" id="woonplaats" name="woonplaats"
+                                                        pattern="[a-zA-Z\.]*" required />
+                                                    <span data-error>Voer de woonplaats van de gemachtigde in</span>
+                                                </label>
+                                            </section>
+                                            <section>
+                                                <label for="landcode">Landcode
+                                                    <input type="text" name="landcode" pattern="\+[0-9]{3}" required />
+                                                    <span data-error="">Voer een landcode die begint met '+'</span>
+                                                </label>
+                                            </section>
+                                        </section>
+                                    </section>
+                                </section>
+                                <span data-error>Vul de eerste letters van de naam van de overledene in hoofdletters
+                                    in</span>
+
+
+
                             </section>
                         </section>
-                        <section>
-                            <label>
-                                Protocolnummer notaris
-                                <input type="radio" class="condition" name="gemachtichte" value="notaris">
-                            </label>
-                            <section class="hidden">
-                                <label>
-                                    <input type="text" pattern="[0-9]{6}" maxlength="6" required />
-                                </label>
-                            </section>
-                        </section>
-            </section>
+
+                    </fieldset>
+                </fieldset>
+                <div>
+                    <input type="submit" value="Controleer">
+                    <a href="#drie">Volgende</a>
+                </div>
             </fieldset>
 
+            <fieldset id="drie">
+                <fieldset>
+                    <legend>Voor wie doet u aangifte?</legend>
+                    <fieldset id="driea">
+                        <legend>3a</legend>
+                        <section>
+                            <p>Heeft de overledene in het testament een executeur aangewezen om de erfenis af te
+                                handelen?
+                                Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets
+                                krijgen uit de nalatenschap
+                                (verkrijgers).</p>
+                            <label>
+                                <input type="radio" id="executeur" name="executeur" />
+                                Ik ben executeur en doe aangifte voor alle personen en/of instellingen die iets krijgen
+                                uit de nalatenschap (verkrijgers). <i>Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook
+                                verkrijger? Tel uzelf dan ook mee.</i>
+                                <span><a href="#driec">Ga naar vraag 3c</a></span>
+                            </label>
+
+                        </section>
+                        <section>
+                            <p>Is er geen executeur aangewezen? Kruis dan aan welke situatie voor u geldt.</p>
+
+                            <label>
+                                <input type="radio" id="erfgenaam" name="executeur" required />
+                                Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor
+                                meerdere personen en/of instellingen die iets krijgen uit de
+                                nalatenschap (verkrijgers). <i>Geef aan voor hoeveel verkrijgers
+                                u aangifte doet. Tel uzelf ook mee.</i>
+                                <input type="tel" id="erfgenaamInput" pattern="[0-9]{4}"
+                                    name="erfgenaamInput" /></label>
+                            </label>
+                            <label>
+                                <input type="radio" id="erfgenaamSamen" name="executeur" required />
+                                Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
+                                <i>Geef het aantal personen en/of instellingen aan die iets
+                                krijgen uit de nalatenschap (verkrijgers). Tel uzelf ook mee.</i>
+
+                                <input type="tel" id="erfgenaamSamenInput" pattern="[0-9]{4}"
+                                    name="erfgenaamSamenInput" /></label>
+                            </label>
+                            <label>
+                                <input type="radio" id="erfgenaamZelf" name="executeur" required />
+                                Ik ben erfgenaam en doe alleen aangifte voor mijzelf.
+                                <input type="tel" id="erfgenaamZelfInput" pattern="[0-9]{4}"
+                                    name="erfgenaamZelfInput" /></label>
+                            </label>
+                            <label>
+                                <input type="radio" id="erfgenaamGeen" name="executeur" required />
+                                Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te
+                                doen. <i>Geef aan voor hoeveel verkrijgers u aangifte doet.</i>
+                                <input type="tel" id="erfgenaamGeenInput" pattern="[0-9]{4}"
+                                    name="erfgenaamGeenInput" /></label>
+                            </label>
+
+
+                        </section>
+                    </fieldset>
+                    <fieldset id="driec">
+                        <legend>3c</legend>
+
+                    </fieldset>
+
+                </fieldset>
+                <div>
+                    <input type="submit" value="Controleer">
+                    <a href="#vier">Volgende</a>
+                </div>
             </fieldset>
-            </section>
+
+            <fieldset id="vier">
+                <fieldset>
+                    <legend>Einde van de formulier</legend>
+                    <fieldset>
+                        <legend>Controleer alle gegevens voordat je ze opstuurd</legend>
+
+                        <a href="#0">Ga naar introductie pagina</a>
+                        <a href="#1">Ga naar pagina 1</a>
+                        <a href="#2">Ga naar pagina 2</a>
+                        <a href="#3">Ga naar pagina 3</a>
+
+                    </fieldset>
+                </fieldset>
+                <div>
+                    <input type="submit" value="Controleer">
+                    <a href="#succes">Akkord met formulier</a>
+                </div>
+            </fieldset>
+
+
 </body>
 
 <script src="script/script.js"></script>
