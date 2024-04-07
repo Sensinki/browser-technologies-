@@ -38,7 +38,7 @@
                 voorwerp.
             </p>
 
-            <h2>Hulp needig?</h2>
+            <h2>Hulp nodig?</h2>
             <!-- Klik op het vraagteken voor een korte toelichting bij de vraag. -->
             <ul>
                 <li>Op belastingdienst.nl/erfbelasting voor meer informatie over erfbelasting.</li>
@@ -60,7 +60,7 @@
                     <!-- met een "title" kun je error message van html veranderen -->
                     <section>
                         <label for="voorletters">Voorletter(s)
-                            <input type="text" id="voorletters" pattern="[A-Z]+" required />
+                            <input type="text" class="uppercase" id="voorletters" pattern="[A-Z]+" required />
                             <span data-error>Vul de eerste letters van de naam van de overledene in hoofdletters
                                 in</span>
                         </label>
@@ -103,12 +103,12 @@
                         <label>
 
                             <input type="radio" class="condition" name="partner" value="ja" required>
-                            ja
+                            Ja
                         </label>
                         <label>
 
                             <input type="radio" name="partner" value="nee">
-                            nee
+                            Nee
                             <span data-error>Kies een van de opties</span>
                         </label>
 
@@ -261,25 +261,25 @@
 
                     <section>
                         <label for="voorletters1d">Voorletter(s)
-                            <input type="text" id="voorletters1d" pattern="[A-Z]+" required />
+                            <input type="text" class="uppercase" id="voorletters1d" pattern="[A-Z]+" required />
                             <span data-error>Gebruik alleen de eerste letters van de naam in hoofdletters</span>
                         </label>
                     </section>
                     <section>
                         <label for="tussenvoegsel1d">Tussenvoegsel(s)
-                            <input type="text" id="tussenvoegsel1d" pattern="[a-zA-Z]+" />
+                            <input type="text" class="lowercase" id="tussenvoegsel1d" pattern="[a-zA-Z]+" />
                         </label>
                     </section>
                     <section>
                         <label for="achternaam1d">Achternaam
-                            <input type="text" id="achternaam1d" pattern="[a-zA-Z]+" required />
+                            <input type="text" class="capitalize" id="achternaam1d" pattern="[a-zA-Z]+" required />
                             <span data-error>Vul hier de achternaam in</span>
 
                         </label>
                     </section>
                     <section>
-                        <label for="achternaam1d">Vestigingsplaats
-                            <input type="text" id="achternaam1d" pattern="[a-zA-Z]+" required />
+                        <label for="vestingplaats">Vestigingsplaats
+                            <input type="text" id="vestingplaats" pattern="[a-zA-Z]+" required />
                             <span data-error>Vul hier de vestigingsplaats in</span>
 
                         </label>
@@ -397,45 +397,38 @@
                                     </label>
                                     <section class="hideable">
                                         <section>
-                                            <section>
-                                                <section>
-                                                    <label for="straat">Straat
-                                                        <input type="text" name="straat" pattern="[A-Za-z\.]*"
-                                                            required />
-                                                        <span data-error>Voer alleen de straatnaam in</span>
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label for="huisnummer">Huisnummer
-                                                        <input type="text" name="huisnummer" pattern="[0-9]*"
-                                                            required />
-                                                        <span data-error>Voer alleen het huisnummer in</span>
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label for="toevoeging">Toevoeging
-                                                        <input type="text" name="toevoeging" pattern="[A-Za-z]*"
-                                                            required />
-                                                    </label>
-                                                </section>
+                                            <label for="straat">Straat
+                                                <input type="text" name="straat" pattern="[A-Za-z\.]*" required />
+                                                <span data-error>Voer alleen de straatnaam in</span>
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="huisnummer">Huisnummer
+                                                <input type="text" name="huisnummer" pattern="[0-9]*" required />
+                                                <span data-error>Voer alleen het huisnummer in</span>
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="toevoeging">Toevoeging
+                                                <input type="text" name="toevoeging" pattern="[A-Za-z]*" required />
+                                            </label>
+                                        </section>
 
-                                                <section>
-                                                    <label for="postcode">Postcode
-                                                        <input type="text" id="postcode" name="postcode"
-                                                            pattern="[0-9]{4}[A-Za-z]{2}" required />
-                                                        <span data-error>Voer een geldige postcode in zoals
-                                                            1234AB</span>
-                                                    </label>
-                                                </section>
-                                                <section>
-                                                    <label for="woonplaats">Woonplaats
-                                                        <input type="text" id="woonplaats" name="woonplaats"
-                                                            pattern="[a-zA-Z\.]*" required />
-                                                        <span data-error>Voer de woonplaats van de gemachtigde in
-                                                        </span>
-                                                    </label>
-                                                </section>
-                                            </section>
+                                        <section>
+                                            <label for="postcode">Postcode
+                                                <input type="text" id="postcode" name="postcode"
+                                                    pattern="[0-9]{4}[A-Za-z]{2}" required />
+                                                <span data-error>Voer een geldige postcode in zoals
+                                                    1234AB</span>
+                                            </label>
+                                        </section>
+                                        <section>
+                                            <label for="woonplaats">Woonplaats
+                                                <input type="text" id="woonplaats" name="woonplaats"
+                                                    pattern="[a-zA-Z\.]*" required />
+                                                <span data-error>Voer de woonplaats van de gemachtigde in
+                                                </span>
+                                            </label>
                                         </section>
                                     </section>
                                     <section>
@@ -456,8 +449,6 @@
                                                     <span data-error>Voer alleen het huisnummer in</span>
                                                 </label>
                                             </section>
-
-
                                             <section>
                                                 <label for="postcode">Postcode
                                                     <input type="text" id="postcode" name="postcode"
@@ -481,11 +472,6 @@
                                         </section>
                                     </section>
                                 </section>
-                                <span data-error>Vul de eerste letters van de naam van de overledene in hoofdletters
-                                    in</span>
-
-
-
                             </section>
                         </section>
 
@@ -506,55 +492,140 @@
                             <p>Heeft de overledene in het testament een executeur aangewezen om de erfenis af te
                                 handelen?
                                 Dan moet de executeur aangifte doen voor alle personen en/of instellingen die iets
-                                krijgen uit de nalatenschap
-                                (verkrijgers).</p>
+                                krijgen uit de nalatenschap (verkrijgers).</p>
                             <label>
                                 <input type="radio" id="executeur" name="executeur" />
                                 Ik ben executeur en doe aangifte voor alle personen en/of instellingen die iets krijgen
-                                uit de nalatenschap (verkrijgers). <i>Geef aan voor hoeveel verkrijgers u aangifte doet. Bent u zelf ook
-                                verkrijger? Tel uzelf dan ook mee.</i>
-                                <span><a href="#driec">Ga naar vraag 3c</a></span>
+                                uit de nalatenschap (verkrijgers). Geef aan voor hoeveel verkrijgers u aangifte doet.
+                                Bent u zelf ook
+                                verkrijger? Tel uzelf dan ook mee.
                             </label>
-
-                        </section>
-                        <section>
-                            <p>Is er geen executeur aangewezen? Kruis dan aan welke situatie voor u geldt.</p>
 
                             <label>
-                                <input type="radio" id="erfgenaam" name="executeur" required />
-                                Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor
-                                meerdere personen en/of instellingen die iets krijgen uit de
-                                nalatenschap (verkrijgers). <i>Geef aan voor hoeveel verkrijgers
-                                u aangifte doet. Tel uzelf ook mee.</i>
-                                <input type="tel" id="erfgenaamInput" pattern="[0-9]{4}"
-                                    name="erfgenaamInput" /></label>
-                            </label>
-                            <label>
-                                <input type="radio" id="erfgenaamSamen" name="executeur" required />
-                                Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
-                                <i>Geef het aantal personen en/of instellingen aan die iets
-                                krijgen uit de nalatenschap (verkrijgers). Tel uzelf ook mee.</i>
+                                <input type="radio" class="condition" id="executeur" name="executeur" />
+                                Is er geen executeur aangewezen? Zie de volgende opties.
 
-                                <input type="tel" id="erfgenaamSamenInput" pattern="[0-9]{4}"
-                                    name="erfgenaamSamenInput" /></label>
-                            </label>
-                            <label>
-                                <input type="radio" id="erfgenaamZelf" name="executeur" required />
-                                Ik ben erfgenaam en doe alleen aangifte voor mijzelf.
-                                <input type="tel" id="erfgenaamZelfInput" pattern="[0-9]{4}"
-                                    name="erfgenaamZelfInput" /></label>
-                            </label>
-                            <label>
-                                <input type="radio" id="erfgenaamGeen" name="executeur" required />
-                                Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te
-                                doen. <i>Geef aan voor hoeveel verkrijgers u aangifte doet.</i>
-                                <input type="tel" id="erfgenaamGeenInput" pattern="[0-9]{4}"
-                                    name="erfgenaamGeenInput" /></label>
+                                <span data-error>Kies een van de opties</span>
                             </label>
 
+                            <section class="hideable">
+                                <p>Kruis dan aan welke situatie voor u geldt.</p>
+                                <section>
+                                    <label>
+                                        <input type="radio" class="condition" id="erfgenaam" name="notexecuteur"
+                                            required />
+                                        Ik ben erfgenaam en ben gemachtigd om aangifte te doen voor
+                                        meerdere personen en/of instellingen die iets krijgen uit de
+                                        nalatenschap (verkrijgers). Geef aan voor hoeveel verkrijgers
+                                        u aangifte doet. Tel uzelf ook mee.
+                                    </label>
+                                    <section class="hideable">
+                                        <label class="wid">
+                                            <input type="tel" class="condition" id="erfgenaamInput" pattern="[0-9]{4}"
+                                                maxlength="4" name="erfgenaamInput" required />
+                                            <span data-error>Vul hier 4 cijferige nummer in</span>
+                                        </label>
+                                    </section>
+                                </section>
+                                <section>
+                                    <label class="hideable">
+                                        <input type="radio" class="condition" id="erfgenaamSamen" name="notexecuteur"
+                                            required />
+                                        Ik ben erfgenaam en doe samen met andere erfgenamen aangifte.
+                                        Geef het aantal personen en/of instellingen aan die iets
+                                        krijgen uit de nalatenschap (verkrijgers). Tel uzelf ook mee.
+                                    </label>
+                                    <section class="hideable">
+                                        <label class="wid">
+                                            <input type="tel" class="condition" id="erfgenaamSamenInput"
+                                                pattern="[0-9]{4}" maxlength="4" name="erfgenaamSamenInput" required />
+                                            <span data-error>Vul hier 4 cijferige nummer in</span>
+                                        </label>
+                                    </section>
+                                </section>
+                                <section class="hideable">
+                                    <label>
+                                        <input type="radio" class="condition" id="erfgenaamZelf" name="notexecuteur"
+                                            required />
+                                        Ik ben erfgenaam en doe alleen aangifte voor mijzelf.
+                                    </label>
+                                    <section class="hideable">
+                                        <label class="wid">
+                                            <input type="tel" class="condition" id="erfgenaamZelfInput"
+                                                pattern="[0-9]{4}" maxlength="4" name="erfgenaamZelfInput" required />
+                                            <span data-error>Vul hier 4 cijferige nummer in</span>
+                                        </label>
+                                    </section>
+                                </section>
+                                <section class="hideable">
+                                    <label>
+                                        <input type="radio" class="condition" id="erfgenaamGeen" name="notexecuteur"
+                                            required />
+                                        Ik ben geen erfgenaam, maar ben gemachtigd om aangifte te
+                                        doen. Geef aan voor hoeveel verkrijgers u aangifte doet.
+                                        <span data-error>Kies een van de opties</span>
+                                    </label>
+                                    <section class="hideable">
+                                        <label class="wid">
+                                            <input type="tel" class="condition" id="erfgenaamGeenInput"
+                                                pattern="[0-9]{4}" maxlength="4" name="erfgenaamGeenInput" required />
+                                            <span data-error>Vul hier 4 cijferige nummer in</span>
+                                        </label>
+                                    </section>
+                                </section>
 
+
+                                <fieldset id="drieb">
+                                    <legend>3b</legend>
+
+                                    <section class="ja-nee">
+                                        <p>Zijn er verkrijgers voor wie u geen aangifte doet?</p>
+
+                                        <label>
+
+                                            <input type="radio" class="condition" name="partner" value="ja" required>
+                                            Ja
+                                        </label>
+                                        <label>
+
+                                            <input type="radio" name="partner" value="nee">
+                                            Nee
+                                            <span data-error>Kies een van de opties</span>
+                                        </label>
+                                        <section class="hideable">
+                                            <fieldset id="verkrijgers">
+                                                <legend>Verkrijger</legend>
+
+                                                <label for="bsn">Burgerservicenummer(BSN)
+                                                    <input type="text" id="bsn1" pattern="[1-9]{8,9}" maxlength="9"
+                                                        required />
+                                                    <span data-error>Vul hier de BSN-nummer van de overledene in</span>
+                                                </label>
+
+                                                <label for="voorletters">Voorletter(s)
+                                                    <input type="text" class="uppercase" id="voorletters1" pattern="[A-Z]+" required />
+                                                    <span data-error>Vul de eerste letters van de naam van de
+                                                        overledene in hoofdletters in</span>
+                                                </label>
+                                                <label for="tussenvoegsel">Tussenvoegsel(s)
+                                                    <input type="text" class="lowercase" id="tussenvoegsel1"
+                                                        pattern="[a-zA-Z]+" />
+                                                </label>
+                                                <label for="achternaam">Achternaam
+                                                    <input type="text" class="capitalize" id="achternaam1"
+                                                        pattern="[a-zA-Z]+" required />
+                                                    <span data-error>Vul hier de achternaam van de overledene in</span>
+                                                </label>
+                                            </fieldset>
+                                        </section>
+                                    </section>
+                                </fieldset>
+                            </section>
                         </section>
                     </fieldset>
+
+
+
                     <fieldset id="driec">
                         <legend>3c</legend>
 
