@@ -52,6 +52,35 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// UPPERCASE
+var elements = document.querySelectorAll(".uppercase");
+
+elements.forEach(function (element) {
+    element.addEventListener("input", function (event) {
+        // Convert the input value to uppercase
+        this.value = this.value.toUpperCase();
+    });
+});
+
+// LOWERCASE
+var elements = document.querySelectorAll(".lowercase");
+
+elements.forEach(function (element) {
+    element.addEventListener("input", function (event) {
+        // Convert the input value to uppercase
+        this.value = this.value.toLowerCase();
+    });
+});
+
+// CAPITALIZE
+var elements = document.querySelectorAll(".capitalize");
+
+elements.forEach(function (element) {
+    element.addEventListener("input", function (event) {
+        // Convert the input value to uppercase
+        this.value = this.value.charAt(0).toUpperCase() + this.value.slice(1);
+    });
+});
 
 // VALIDATE ONLY ONE FIELDSET
 // function validateFieldset(fieldsetId) {
