@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulier Erfbelasting</title>
     <link rel="stylesheet" href="style/style.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/images/Logo_rijksoverheid.svg.png">
+
 </head>
 
 <body>
@@ -21,7 +23,7 @@
                 <li><a href="#een">1</a></li>
                 <li><a href="#twee">2</a></li>
                 <li><a href="#drie">3</a></li>
-                <li><a href="#vier">4</a></li>
+                <!-- <li><a href="#vier">4</a></li> -->
             </ul>
         </nav>
     </header>
@@ -67,7 +69,7 @@
                     </section>
                     <section>
                         <label for="tussenvoegsel">Tussenvoegsel(s)
-                            <input type="text" class="lowercase" id="tussenvoegsel" pattern="[a-zA-Z]+" />
+                            <input type="text" class="lowercase wid" id="tussenvoegsel" pattern="[a-zA-Z]+" />
                         </label>
                     </section>
                     <section>
@@ -267,7 +269,7 @@
                     </section>
                     <section>
                         <label for="tussenvoegsel1d">Tussenvoegsel(s)
-                            <input type="text" class="lowercase" id="tussenvoegsel1d" pattern="[a-zA-Z]+" />
+                            <input type="text" class=" wid" id="tussenvoegsel1d" pattern="[a-zA-Z]+" />
                         </label>
                     </section>
                     <section>
@@ -358,7 +360,7 @@
                         </section>
                         <section>
                             <label for="tussenvoegsel2b">Tussenvoegsel(s)
-                                <input type="text" class="lowercase" id="tussenvoegsel2b" pattern="[a-zA-Z]+" />
+                                <input type="text" class="lowercase wid" id="tussenvoegsel2b" pattern="[a-zA-Z]+" />
                             </label>
                         </section>
                         <section>
@@ -582,19 +584,17 @@
                                         <p>Zijn er verkrijgers voor wie u geen aangifte doet?</p>
 
                                         <label>
-
                                             <input type="radio" class="condition" name="partner" value="ja" required>
                                             Ja
                                         </label>
                                         <label>
-
                                             <input type="radio" name="partner" value="nee">
                                             Nee
                                             <span data-error>Kies een van de opties</span>
                                         </label>
-                                        <section class="hideable">
+                                        <section class="hideable voeg">
                                             <fieldset id="verkrijgers">
-                                                <legend>Verkrijger</legend>
+                                                <legend>Verkrijger 1</legend>
 
                                                 <label for="bsn">Burgerservicenummer(BSN)
                                                     <input type="text" id="bsn1" pattern="[1-9]{8,9}" maxlength="9"
@@ -603,12 +603,13 @@
                                                 </label>
 
                                                 <label for="voorletters">Voorletter(s)
-                                                    <input type="text" class="uppercase" id="voorletters1" pattern="[A-Z]+" required />
+                                                    <input type="text" class="uppercase" id="voorletters1"
+                                                        pattern="[A-Z]+" required />
                                                     <span data-error>Vul de eerste letters van de naam van de
                                                         overledene in hoofdletters in</span>
                                                 </label>
                                                 <label for="tussenvoegsel">Tussenvoegsel(s)
-                                                    <input type="text" class="lowercase" id="tussenvoegsel1"
+                                                    <input type="text" class="lowercase width" id="tussenvoegsel1"
                                                         pattern="[a-zA-Z]+" />
                                                 </label>
                                                 <label for="achternaam">Achternaam
@@ -616,8 +617,44 @@
                                                         pattern="[a-zA-Z]+" required />
                                                     <span data-error>Vul hier de achternaam van de overledene in</span>
                                                 </label>
+                                                <section class="ja-nee">
+                                                    <p>Krijgt deze verkrijger waarvoor u geen aangifte doet het hele
+                                                        vermogen?</p>
+
+                                                    <label >
+
+                                                        <input type="radio" name="vermogen" value="ja" required>
+                                                        Ja
+                                                    </label>
+                                                    <label>
+
+                                                        <input type="radio" name="vermogen" value="nee">
+                                                        Nee
+                                                        <span data-error>Kies een van de opties</span>
+                                                    </label>
+                                                </section>
+
+                                                <section class="ja-nee">
+                                                    <p>Doet deze verkrijger een beroep op diens legitieme portie
+                                                        (wettelijke erfdeel)?</p>
+
+                                                    <label>
+
+                                                        <input type="radio" name="legitiem" value="ja" required>
+                                                        Ja
+                                                    </label>
+                                                    <label>
+
+                                                        <input type="radio" name="legitiem" value="nee">
+                                                        Nee
+                                                        <span data-error>Kies een van de opties</span>
+                                                    </label>
+                                                </section>
                                             </fieldset>
                                         </section>
+                                        <!-- new section has to come here -->
+                                        <a id="addSectionsButton">Voeg nog een verkrijger toe</a>
+
                                     </section>
                                 </fieldset>
                             </section>
@@ -628,7 +665,42 @@
 
                     <fieldset id="driec">
                         <legend>3c</legend>
+                        <section class="ja-nee">
+                            <p>Naar wie wilt u dat wij de aanslag erfbelasting sturen?</p>
+                            <label>
+                                <input type="radio" name="naarwie" value="naarerfenis" required>
+                                Stuur naar iedere verkrijger van (een deel van) de erfenis een eigen belastingaanslag.
+                            </label>
+                            <label>
+                                <input type="radio" name="naarwie" value="naarexecuteur">
+                                Stuur de belastingaanslag(en) naar de executeur of naar de erfgenaam die ook namens
+                                andere personen en/of instellingen
+                                die iets krijgen uit de nalatenschap (verkrijgers) aangifte heeft gedaan; dit mag ook de
+                                gemachtigde zijn.
+                                Wij sturen de aanslag(en) naar het adres dat u bij vraag 2 hebt ingevuld.
+                                <span data-error>Kies een van de opties</span>
+                            </label>
+                        </section>
+                    </fieldset>
 
+                    <fieldset id="dried">
+                        <legend>3d</legend>
+                        <section class="ja-nee">
+                            <p>Bent u executeur of gemachtigde?</p>
+                            <label>
+                                <input type="radio" class="condition" name="exeofmacht" value="ja" required>
+                                Ja
+                            </label>
+                            <label>
+                                <input type="radio" name="exeofmacht" value="nee">
+                                Nee
+                                <span data-error>Kies een van de opties</span>
+                            </label>
+                            <!-- <fieldset class="hideable">
+                                <legend>3e</legend>
+
+                            </fieldset> -->
+                        </section>
                     </fieldset>
 
                 </fieldset>
@@ -638,7 +710,7 @@
                 </div>
             </fieldset>
 
-            <fieldset id="vier">
+            <!-- <fieldset id="vier">
                 <fieldset>
                     <legend>Einde van de formulier</legend>
                     <fieldset>
@@ -655,7 +727,7 @@
                     <input type="submit" value="Controleer">
                     <a href="#succes">Akkord met formulier</a>
                 </div>
-            </fieldset>
+            </fieldset> -->
 
 
 </body>
